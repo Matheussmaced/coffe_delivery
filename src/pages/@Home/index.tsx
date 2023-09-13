@@ -1,8 +1,14 @@
-import { ShoppingCart } from 'phosphor-react'
+import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 import {
   HomeContainer,
   TitleAndSubTitleContainer,
   InformationContainer,
+  IconCart,
+  IconTimer,
+  IconPackage,
+  IconCoffe,
+  ColumOne,
+  ColumTwo,
 } from './styles'
 
 import ImgCoffe from '../../assets/Imagem-coffe.svg'
@@ -19,20 +25,32 @@ export const Home = () => {
               qualquer hora
             </p>
           </TitleAndSubTitleContainer>
-          <div>
-            <ShoppingCart />
+
+          <ColumOne>
+            <IconCart>
+              <ShoppingCart weight="fill" />
+            </IconCart>
             <span>Compra simples e segura</span>
 
-            <ShoppingCart />
+            <IconPackage>
+              <Package weight="fill" />
+            </IconPackage>
+            <span>Embalagem mantém o café intacto</span>
+          </ColumOne>
+
+          <ColumTwo>
+            <IconTimer>
+              <Timer weight="fill" />
+            </IconTimer>
             <span>Entrega rápida e rastreada</span>
 
-            <ShoppingCart />
-            <span>Embalagem mantém o café intacto</span>
-
-            <ShoppingCart />
+            <IconCoffe>
+              <Coffee weight="fill" />
+            </IconCoffe>
             <span>O café chega fresquinho até você</span>
-          </div>
+          </ColumTwo>
         </InformationContainer>
+
         <img src={ImgCoffe} alt="Imagem de um café escrito coffe delivery" />
       </HomeContainer>
     </>

@@ -16,12 +16,12 @@ export const Header = () => {
           <img src={Logo} alt="Copo de café com escrita coffe delivery" />
           <ButtonsContainer>
             <SpanButtonMap>
-              <MapPin />
+              <MapPin weight="fill" />
               Aurora, CE
             </SpanButtonMap>
 
             <SpanButtonCart>
-              <ShoppingCart color={defaultTheme['yellow-dark']} />
+              <ShoppingCart color={defaultTheme['yellow-dark']} weight="fill" />
             </SpanButtonCart>
           </ButtonsContainer>
         </HeaderInformation>

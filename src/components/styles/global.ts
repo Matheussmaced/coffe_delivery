@@ -17,4 +17,8 @@ body{
   margin: auto;
 }
 
+html{
+  font-family: 'Roboto', sans-serif;
+}
+
 `
