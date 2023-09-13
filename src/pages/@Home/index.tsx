@@ -13,7 +13,7 @@ import {
 } from './styles'
 
 import ImgCoffe from '../../assets/Imagem-coffe.svg'
-import { BodyHome } from './components/Body'
+import { CoffeComponent } from './components/CoffeComponent'
 
 export const Home = () => {
   return (
@@ -56,7 +56,7 @@ export const Home = () => {
         <img src={ImgCoffe} alt="Imagem de um café escrito coffe delivery" />
       </HomeContainerHeader>
 
-      <BodyHome />
+      <CoffeComponent />
     </HomeContainer>
   )
 }

@@ -1,30 +1,32 @@
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
-import CoffeOne from '../../../../assets/Coffee1.svg'
 
-export const BodyHome = () => {
+interface BodyHomeProps {
+  img: string
+  name: string
+  flavor: string
+  description: string
+}
+
+export const BodyHome = ({ img, name, flavor, description }: BodyHomeProps) => {
   return (
     <>
-      <h2>Nossos cafés</h2>
+      <img src={img} alt={description} />
+      <h3>{name}</h3>
+      <p>{flavor}</p>
 
       <div>
-        <img src={CoffeOne} alt="Café tradicional" />
-        <h3>Expresso Tradicional</h3>
-        <p>O tradicional café feito com água quente e grãos moídos</p>
-
+        <span>
+          R$ <strong>9,90</strong>
+        </span>
         <div>
-          <span>
-            R$ <strong>9,90</strong>
-          </span>
-          <div>
-            <Minus weight="bold" />
-            <span>1</span>
-            <Plus weight="bold" />
-          </div>
-
-          <span>
-            <ShoppingCart weight="fill" />
-          </span>
+          <Minus weight="bold" />
+          <span>1</span>
+          <Plus weight="bold" />
         </div>
+
+        <span>
+          <ShoppingCart weight="fill" />
+        </span>
       </div>
     </>
   )
