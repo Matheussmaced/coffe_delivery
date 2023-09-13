@@ -12,6 +12,9 @@ export const GlobalStyle = createGlobalStyle`
   box-shadow: 0 0 0 2px #333;
 }
 
-
+body{
+  max-width: 70rem;
+  margin: auto;
+}
 
 `
