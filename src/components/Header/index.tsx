@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import Logo from '../../assets/Logo.svg'
 import { defaultTheme } from '../styles/themes/default'
 import {
@@ -12,19 +13,29 @@ export const Header = () => {
   return (
     <>
       <header>
-        <HeaderInformation>
-          <img src={Logo} alt="Copo de café com escrita coffe delivery" />
-          <ButtonsContainer>
-            <SpanButtonMap>
-              <MapPin weight="fill" />
-              Aurora, CE
-            </SpanButtonMap>
+        <nav>
+          <HeaderInformation>
+            <NavLink to="/" title="Coffe Delivery">
+              <img src={Logo} alt="Copo de café com escrita coffe delivery" />
+            </NavLink>
 
-            <SpanButtonCart>
-              <ShoppingCart color={defaultTheme['yellow-dark']} weight="fill" />
-            </SpanButtonCart>
-          </ButtonsContainer>
-        </HeaderInformation>
+            <ButtonsContainer>
+              <SpanButtonMap>
+                <MapPin weight="fill" />
+                Aurora, CE
+              </SpanButtonMap>
+
+              <SpanButtonCart>
+                <NavLink to="/checkout" title="Ver carrinho">
+                  <ShoppingCart
+                    color={defaultTheme['yellow-dark']}
+                    weight="fill"
+                  />
+                </NavLink>
+              </SpanButtonCart>
+            </ButtonsContainer>
+          </HeaderInformation>
+        </nav>
       </header>
     </>
   )
