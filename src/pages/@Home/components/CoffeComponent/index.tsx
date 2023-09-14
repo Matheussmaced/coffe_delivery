@@ -10,6 +10,8 @@ export const CoffeComponent = () => {
       <div>
         <BodyHome
           img={CoffeOne}
+          typeOne="Tradicional"
+          typeTwo="Tradicional"
           name="Capuccino"
           flavor="Bebida com canela feita de doses iguais de café, leite e espuma"
           description="Capuccino"
