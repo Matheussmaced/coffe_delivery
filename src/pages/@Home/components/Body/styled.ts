@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const BodyContainer = styled.div`
   margin: 3.37rem auto;
-  background-color: red;
+  background-color: ${(props) => props.theme['base-card']};
   width: 16rem;
   text-align: center;
   padding: 0 1.25rem 1.25rem;
@@ -28,7 +28,7 @@ export const TypesContainer = styled.span`
   justify-content: center;
   gap: 0.25rem;
 
-  margin-top: 0.25rem;
+  margin-top: 0.75rem;
   font-size: 0.625rem;
   font-weight: 700;
 
@@ -48,6 +48,7 @@ export const BuyContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1.43rem;
+  margin-top: 2.06rem;
 
   #priceContainer {
     font-size: 0.875rem;
@@ -83,4 +84,6 @@ export const CarButton = styled.button`
   border: none;
   padding: 0.5rem;
   border-radius: 6px;
+
+  cursor: pointer;
 `

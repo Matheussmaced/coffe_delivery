@@ -33,6 +33,8 @@ export const TitleAndSubTitleContainer = styled.div`
     font-size: 3rem;
     line-height: 3.9rem;
     font-weight: 800;
+
+    color: ${(props) => props.theme['base-title']};
   }
 `
 

@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
 body{
   max-width: 70rem;
   margin: auto;
+  color: ${(props) => props.theme['base-text']};
 }
 
 html{

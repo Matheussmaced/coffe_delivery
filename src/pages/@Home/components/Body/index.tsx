@@ -15,6 +15,7 @@ interface BodyHomeProps {
   description: string
   typeOne: string
   typeTwo?: string
+  typeTree?: string
 }
 
 export const BodyHome = ({
@@ -24,6 +25,7 @@ export const BodyHome = ({
   description,
   typeOne,
   typeTwo,
+  typeTree,
 }: BodyHomeProps) => {
   return (
     <BodyContainer>
@@ -31,7 +33,8 @@ export const BodyHome = ({
 
       <TypesContainer>
         <span>{typeOne}</span>
-        <span>{typeTwo}</span>
+        {typeTwo ? <span>{typeTwo}</span> : ''}
+        {typeTree ? <span>{typeTree}</span> : ''}
       </TypesContainer>
 
       <h3>{name}</h3>
@@ -52,7 +55,7 @@ export const BodyHome = ({
         </Counter>
 
         <CarButton>
-          <ShoppingCart weight="fill" />
+          <ShoppingCart weight="fill" size={22} />
         </CarButton>
       </BuyContainer>
     </BodyContainer>
