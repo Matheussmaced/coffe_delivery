@@ -7,6 +7,7 @@ import {
   TypesContainer,
 } from './styled'
 import { defaultTheme } from '../../../../components/styles/themes/default'
+import { useState } from 'react'
 
 interface BodyHomeProps {
   img: string
@@ -27,18 +28,40 @@ export const BodyHome = ({
   typeTwo,
   typeTree,
 }: BodyHomeProps) => {
+  const coffeCard = {
+    img,
+    name,
+    flavor,
+    description,
+    typeOne,
+    typeTwo,
+    typeTree,
+  }
+
+  const [coffes] = useState([coffeCard])
+
+  const teste = coffes.map((coffe) => coffe)
+
+  console.log(teste)
+
   return (
     <BodyContainer>
-      <img src={img} alt={description} />
+      {coffes.map((coffe) => {
+        return (
+          <div key={2}>
+            <img src={coffe.img} alt={coffe.description} />
 
-      <TypesContainer>
-        <span>{typeOne}</span>
-        {typeTwo ? <span>{typeTwo}</span> : ''}
-        {typeTree ? <span>{typeTree}</span> : ''}
-      </TypesContainer>
+            <TypesContainer>
+              <span>{coffe.typeOne}</span>
+              {coffe.typeTwo ? <span>{coffe.typeTwo}</span> : ''}
+              {coffe.typeTree ? <span>{coffe.typeTree}</span> : ''}
+            </TypesContainer>
 
-      <h3>{name}</h3>
-      <p>{flavor}</p>
+            <h3>{coffe.name}</h3>
+            <p>{coffe.flavor}</p>
+          </div>
+        )
+      })}
 
       <BuyContainer>
         <span id="priceContainer">

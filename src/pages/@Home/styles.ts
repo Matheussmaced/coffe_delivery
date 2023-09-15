@@ -10,8 +10,6 @@ export const HomeContainerHeader = styled.div`
   align-items: center;
   padding: 5.87rem 0 7.09rem 0;
   gap: 3.5rem;
-
-  background-image: url('../../assets/Background-home.svg');
 `
 export const InformationContainer = styled.div`
   display: flex;
