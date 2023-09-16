@@ -39,10 +39,21 @@ export const BodyHome = ({
   }
 
   const [coffes] = useState([coffeCard])
+  const [count, setCount] = useState(1)
 
-  const teste = coffes.map((coffe) => coffe)
+  function countup() {
+    return setCount(count + 1)
+  }
 
-  console.log(teste)
+  function countdown() {
+    return count > 0 ? setCount(count - 1) : 0
+  }
+
+  function addToCar() {
+    const valueCoffe = 9.99
+
+    return console.log(count * valueCoffe)
+  }
 
   return (
     <BodyContainer>
@@ -68,17 +79,17 @@ export const BodyHome = ({
           R$ <strong id="price">9,90</strong>
         </span>
         <Counter>
-          <button>
+          <button onClick={countdown}>
             <Minus weight="bold" color={defaultTheme.purple} />
           </button>
-          <span>1</span>
-          <button>
+          <span>{count}</span>
+          <button onClick={countup}>
             <Plus weight="bold" color={defaultTheme.purple} />
           </button>
         </Counter>
 
         <CarButton>
-          <ShoppingCart weight="fill" size={22} />
+          <ShoppingCart weight="fill" size={22} onClick={addToCar} />
         </CarButton>
       </BuyContainer>
     </BodyContainer>

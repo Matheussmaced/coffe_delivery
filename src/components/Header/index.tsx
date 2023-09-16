@@ -6,6 +6,7 @@ import {
   HeaderInformation,
   SpanButtonMap,
   SpanButtonCart,
+  Count,
 } from './styles'
 import { MapPin, ShoppingCart } from 'phosphor-react'
 
@@ -31,6 +32,7 @@ export const Header = () => {
                     color={defaultTheme['yellow-dark']}
                     weight="fill"
                   />
+                  <Count>1</Count>
                 </NavLink>
               </SpanButtonCart>
             </ButtonsContainer>

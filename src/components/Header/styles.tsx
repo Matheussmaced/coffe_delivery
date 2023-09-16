@@ -52,3 +52,15 @@ export const SpanButtonCart = styled(BasedSpan)`
     transform: scale(1.05);
   }
 `
+
+export const Count = styled.span`
+  position: absolute;
+  top: 1.7rem;
+
+  padding: 0.2rem 0.4rem;
+  font-size: 0.75rem;
+  border-radius: 50%;
+
+  color: ${(props) => props.theme.white};
+  background-color: ${(props) => props.theme['yellow-dark']};
+`
