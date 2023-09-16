@@ -5,18 +5,18 @@ import CoffeTwo from '../../../../assets/Coffe2.svg'
 import CoffeTree from '../../../../assets/Coffe3.svg'
 import CoffeFor from '../../../../assets/Coffe4.svg'
 
-import CoffeFive from '../../../../assets/Coffe5.svg'
-import CoffeSix from '../../../../assets/Coffe6.svg'
-import CoffeSeven from '../../../../assets/Coffe7.svg'
-import CoffeEight from '../../../../assets/Coffe8.svg'
+import CoffeFive from '../../../../assets/coffe5.svg'
+import CoffeSix from '../../../../assets/coffe6.svg'
+import CoffeSeven from '../../../../assets/coffe7.svg'
+import CoffeEight from '../../../../assets/coffe8.svg'
 
-import CoffeNine from '../../../../assets/Coffe9.svg'
-import CoffeTen from '../../../../assets/Coffe10.svg'
-import CoffeEleven from '../../../../assets/Coffe11.svg'
-import CoffeTwelve from '../../../../assets/Coffe12.svg'
+import CoffeNine from '../../../../assets/coffe9.svg'
+import CoffeTen from '../../../../assets/coffe10.svg'
+import CoffeEleven from '../../../../assets/coffe11.svg'
+import CoffeTwelve from '../../../../assets/coffe12.svg'
 
-import CoffeThirteen from '../../../../assets/Coffe13.svg'
-import CoffeFourteen from '../../../../assets/Coffe14.svg'
+import CoffeThirteen from '../../../../assets/coffe13.svg'
+import CoffeFourteen from '../../../../assets/coffe14.svg'
 
 import { CoffeContainer } from './styled'
 
