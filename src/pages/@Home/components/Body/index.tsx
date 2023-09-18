@@ -8,6 +8,7 @@ import {
 } from './styled'
 import { defaultTheme } from '../../../../components/styles/themes/default'
 import { useState } from 'react'
+// import BodyHomeContext from './CountContext'
 
 interface BodyHomeProps {
   img: string
@@ -38,8 +39,12 @@ export const BodyHome = ({
     typeTree,
   }
 
+  // const { count, setCount } = useContext(BodyHomeContext)
+
   const [coffes] = useState([coffeCard])
   const [count, setCount] = useState(1)
+
+  console.log(count)
 
   function countup() {
     return setCount(count + 1)

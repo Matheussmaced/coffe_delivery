@@ -49,7 +49,6 @@ export const SpanButtonCart = styled(BasedSpan)`
 
   &:hover {
     border: solid 1px ${(props) => props.theme['yellow-dark']};
-    transform: scale(1.05);
   }
 `
 
