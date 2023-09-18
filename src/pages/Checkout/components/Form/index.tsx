@@ -1,36 +1,47 @@
+import {
+  FormContainer,
+  InputBairro,
+  InputCep,
+  InputCidade,
+  InputComplemento,
+  InputNumero,
+  InputRua,
+  InputUF,
+} from './styles'
+
 export const Form = () => {
   return (
-    <>
+    <FormContainer>
       <form>
         <div>
-          <label htmlFor="Cep"></label>
-          <input type="number" placeholder="CEP" />
+          <label htmlFor="CEP"></label>
+          <InputCep type="number" placeholder="CEP" />
         </div>
 
         <div>
-          <label htmlFor="Rua"></label>
-          <input type="text" placeholder="Rua" />
+          <label htmlFor="rua"></label>
+          <InputRua type="text" placeholder="Rua" />
         </div>
 
         <div>
           <label htmlFor="numero"></label>
-          <input type="number" placeholder="Número" />
+          <InputNumero type="number" placeholder="Número" />
 
           <label htmlFor="complemento"></label>
-          <input type="text" placeholder="Complemento" />
+          <InputComplemento type="text" placeholder="Complemento" />
         </div>
 
         <div>
           <label htmlFor="bairro"></label>
-          <input type="text" placeholder="Bairro" />
+          <InputBairro type="text" placeholder="Bairro" />
 
           <label htmlFor="cidade"></label>
-          <input type="text" placeholder="Cidade" />
+          <InputCidade type="text" placeholder="Cidade" />
 
           <label htmlFor="uf"></label>
-          <input type="text" placeholder="UF" />
+          <InputUF type="text" placeholder="UF" />
         </div>
       </form>
-    </>
+    </FormContainer>
   )
 }
