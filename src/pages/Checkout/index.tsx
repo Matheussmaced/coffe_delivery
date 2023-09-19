@@ -1,16 +1,22 @@
 import { MapPin } from 'phosphor-react'
-import { CheckoutContainer, Delivery, FormContainer } from './styles'
+import {
+  CheckoutContainer,
+  Delivery,
+  FormContainer,
+  FormInforms,
+} from './styles'
 
 import { Form } from './components/Form/index'
 import { Payment } from './components/Payment'
 import { defaultTheme } from '../../components/styles/themes/default'
+import { SelectedCoffee } from './components/SelectedCoffee'
 
 export const Checkout = () => {
   return (
     <CheckoutContainer>
-      <h2>Complete seu pedido</h2>
+      <FormInforms>
+        <h2>Complete seu pedido</h2>
 
-      <div>
         <FormContainer>
           <Delivery>
             <MapPin size={22} color={defaultTheme.yellow} />
@@ -22,7 +28,8 @@ export const Checkout = () => {
           <Form />
           <Payment />
         </FormContainer>
-      </div>
+      </FormInforms>
+      <SelectedCoffee />
     </CheckoutContainer>
   )
 }
