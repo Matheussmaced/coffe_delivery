@@ -7,7 +7,8 @@ import {
   TypesContainer,
 } from './styled'
 import { defaultTheme } from '../../../../components/styles/themes/default'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { CountContext } from '../../../../components/context/CountContext'
 // import BodyHomeContext from './CountContext'
 
 interface BodyHomeProps {
@@ -18,6 +19,7 @@ interface BodyHomeProps {
   typeOne: string
   typeTwo?: string
   typeTree?: string
+  coffeId: number
 }
 
 export const BodyHome = ({
@@ -28,7 +30,10 @@ export const BodyHome = ({
   typeOne,
   typeTwo,
   typeTree,
+  coffeId,
 }: BodyHomeProps) => {
+  const [count, setCount] = useState(1)
+
   const coffeCard = {
     img,
     name,
@@ -37,21 +42,28 @@ export const BodyHome = ({
     typeOne,
     typeTwo,
     typeTree,
+    coffeId,
   }
 
-  // const { count, setCount } = useContext(BodyHomeContext)
-
   const [coffes] = useState([coffeCard])
-  const [count, setCount] = useState(1)
 
-  console.log(count)
+  const countContext = useContext(CountContext)
+  if (!countContext) {
+    return null
+  }
+
+  const { globalCount, setGlobalCount } = countContext
 
   function countup() {
-    return setCount(count + 1)
+    setCount(count + 1)
+    setGlobalCount(globalCount + 1)
   }
 
   function countdown() {
-    return count > 0 ? setCount(count - 1) : 0
+    if (count > 0) {
+      setCount(count - 1)
+      setGlobalCount(globalCount - 1)
+    }
   }
 
   function addToCar() {
@@ -64,7 +76,7 @@ export const BodyHome = ({
     <BodyContainer>
       {coffes.map((coffe) => {
         return (
-          <div key={2}>
+          <div key={coffeId}>
             <img src={coffe.img} alt={coffe.description} />
 
             <TypesContainer>

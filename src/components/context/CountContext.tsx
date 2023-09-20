@@ -1,12 +1,23 @@
 import { createContext, useState } from 'react'
 
-export const CountContext = createContext()
+export interface CountContextType {
+  globalCount: number
+  setGlobalCount: (count: number) => void
+}
 
-export const CountProvider = ({ children }) => {
-  const [count, setCount] = useState(1)
+export const CountContext = createContext<CountContextType | undefined>(
+  undefined,
+)
+
+interface childrenProps {
+  children: React.ReactNode
+}
+
+export const CountProvider = ({ children }: childrenProps) => {
+  const [globalCount, setGlobalCount] = useState(1)
 
   return (
-    <CountContext.Provider value={{ count, setCount }}>
+    <CountContext.Provider value={{ globalCount, setGlobalCount }}>
       {children}
     </CountContext.Provider>
   )

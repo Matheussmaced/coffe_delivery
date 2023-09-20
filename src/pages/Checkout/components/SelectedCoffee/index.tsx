@@ -17,6 +17,7 @@ import {
 import coffee1 from '../../../../assets/Coffe2.svg'
 import { Minus, Plus, Trash } from 'phosphor-react'
 import { defaultTheme } from '../../../../components/styles/themes/default'
+import { NavLink } from 'react-router-dom'
 
 export const SelectedCoffee = () => {
   return (
@@ -65,7 +66,9 @@ export const SelectedCoffee = () => {
           </GrandTotal>
         </OrderSummary>
 
-        <Confirme>CONFIRMAR PEDIDO</Confirme>
+        <NavLink to="/success" title="Confirmar pedido">
+          <Confirme>CONFIRMAR PEDIDO</Confirme>
+        </NavLink>
       </SelectedCoffeeContainer>
     </>
   )

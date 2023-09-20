@@ -32,6 +32,7 @@ export const CoffeComponent = () => {
           name="Expresso Tradicional"
           flavor="O tradicional café feito com água quente e grãos moídos"
           description="Expresso Tradicional"
+          coffeId={1}
         />
         <BodyHome
           img={CoffeTwo}
@@ -39,6 +40,7 @@ export const CoffeComponent = () => {
           name="Expresso Americano"
           flavor="Expresso diluído, menos intenso que o tradicional"
           description="Expresso Americano"
+          coffeId={2}
         />
         <BodyHome
           img={CoffeTree}
@@ -46,6 +48,7 @@ export const CoffeComponent = () => {
           name="Expresso Cremoso"
           flavor="Café expresso tradicional com espuma cremosa"
           description="Expresso Cremoso"
+          coffeId={3}
         />
         <BodyHome
           img={CoffeFor}
@@ -54,6 +57,7 @@ export const CoffeComponent = () => {
           name="Expresso Gelado"
           flavor="Bebida preparada com café expresso e cubos de gelo"
           description="Expresso Gelado"
+          coffeId={4}
         />
       </CoffeContainer>
 
@@ -65,6 +69,7 @@ export const CoffeComponent = () => {
           name="Café com Leite"
           flavor="Meio a meio de expresso tradicional com leite vaporizado"
           description="Café com Leite"
+          coffeId={5}
         />
         <BodyHome
           img={CoffeSix}
@@ -73,6 +78,7 @@ export const CoffeComponent = () => {
           name="Latte"
           flavor="Uma dose de café expresso com o dobro de leite e espuma cremosa"
           description="Latte"
+          coffeId={6}
         />
         <BodyHome
           img={CoffeSeven}
@@ -81,6 +87,7 @@ export const CoffeComponent = () => {
           name="Capuccino"
           flavor="Bebida com canela feita de doses iguais de café, leite e espuma"
           description="Capuccino"
+          coffeId={7}
         />
         <BodyHome
           img={CoffeEight}
@@ -89,6 +96,7 @@ export const CoffeComponent = () => {
           name="Macchiato"
           flavor="Café expresso misturado com um pouco de leite quente e espuma"
           description="Macchiato"
+          coffeId={8}
         />
       </CoffeContainer>
 
@@ -100,6 +108,7 @@ export const CoffeComponent = () => {
           name="Mocaccino"
           flavor="Café expresso com calda de chocolate, pouco leite e espuma"
           description="Mocaccino"
+          coffeId={9}
         />
         <BodyHome
           img={CoffeTen}
@@ -108,6 +117,7 @@ export const CoffeComponent = () => {
           name="Chocolate Quente"
           flavor="Bebida feita com chocolate dissolvido no leite quente e café"
           description="Chocolate Quente"
+          coffeId={10}
         />
         <BodyHome
           img={CoffeEleven}
@@ -117,6 +127,7 @@ export const CoffeComponent = () => {
           name="Cubano"
           flavor="Drink gelado de café expresso com rum, creme de leite e hortelã"
           description="Cubano"
+          coffeId={11}
         />
         <BodyHome
           img={CoffeTwelve}
@@ -124,6 +135,7 @@ export const CoffeComponent = () => {
           name="Havaiano"
           flavor="Bebida adocicada preparada com café e leite de coco"
           description="Havaiano"
+          coffeId={12}
         />
       </CoffeContainer>
 
@@ -134,6 +146,7 @@ export const CoffeComponent = () => {
           name="Árabe"
           flavor="Bebida preparada com grãos de café árabe e especiarias"
           description="Árabe"
+          coffeId={13}
         />
         <BodyHome
           img={CoffeFourteen}
@@ -142,6 +155,7 @@ export const CoffeComponent = () => {
           name="Irlandês"
           flavor="Bebida a base de café, uísque irlandês, açúcar e chantilly"
           description="alcoólico"
+          coffeId={14}
         />
       </CoffeContainer>
     </>
