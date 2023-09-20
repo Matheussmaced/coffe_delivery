@@ -9,8 +9,18 @@ import {
   Count,
 } from './styles'
 import { MapPin, ShoppingCart } from 'phosphor-react'
+import { useContext } from 'react'
+import { CountContext } from '../context/CountContext'
 
 export const Header = () => {
+  const globalCountContext = useContext(CountContext)
+
+  if (!globalCountContext) {
+    return null
+  }
+
+  const { globalCount } = globalCountContext
+
   return (
     <>
       <header>
@@ -32,7 +42,7 @@ export const Header = () => {
                     color={defaultTheme['yellow-dark']}
                     weight="fill"
                   />
-                  <Count>1</Count>
+                  {globalCount > 0 ? <Count> {globalCount} </Count> : null}
                 </NavLink>
               </SpanButtonCart>
             </ButtonsContainer>

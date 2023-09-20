@@ -32,7 +32,7 @@ export const BodyHome = ({
   typeTree,
   coffeId,
 }: BodyHomeProps) => {
-  const [count, setCount] = useState(1)
+  const [count, setCount] = useState(0)
 
   const coffeCard = {
     img,
