@@ -9,9 +9,22 @@ import {
 import { defaultTheme } from '../../../../components/styles/themes/default'
 import { useState, useContext } from 'react'
 import { CountContext } from '../../../../components/context/CountContext'
+import { CoffeeCardContext } from '../../../../components/context/CoffeeCardContext'
+import { AddToCarContext } from './context/AddToCarContext'
 // import BodyHomeContext from './CountContext'
 
 interface BodyHomeProps {
+  img: string
+  name: string
+  flavor: string
+  description: string
+  typeOne: string
+  typeTwo?: string
+  typeTree?: string
+  coffeId: number
+}
+
+interface CoffeeCardProps {
   img: string
   name: string
   flavor: string
@@ -32,9 +45,26 @@ export const BodyHome = ({
   typeTree,
   coffeId,
 }: BodyHomeProps) => {
-  const [count, setCount] = useState(0)
+  let { CoffeeCard } = useContext(CoffeeCardContext)
+  const countContext = useContext(CountContext)
+  const addToCarContext = useContext(AddToCarContext)
 
-  const coffeCard = {
+  const [count, setCount] = useState(0)
+  const [coffes, setCoffes] = useState<CoffeeCardProps[]>([
+    { img, name, flavor, description, typeOne, typeTwo, typeTree, coffeId },
+  ])
+
+  if (!countContext) {
+    return null
+  }
+
+  if (!addToCarContext) {
+    return null
+  }
+  const { coffeeCart, setCoffeeCart } = AddToCarContext
+  const { globalCount, setGlobalCount } = countContext
+
+  const NewCoffeCard: CoffeeCardProps = {
     img,
     name,
     flavor,
@@ -45,14 +75,20 @@ export const BodyHome = ({
     coffeId,
   }
 
-  const [coffes] = useState([coffeCard])
+  CoffeeCard = NewCoffeCard
 
-  const countContext = useContext(CountContext)
-  if (!countContext) {
-    return null
+  function addToCart(idCoffe: number) {
+    const selectedCoffe = coffes.find((coffe) => coffe.coffeId === idCoffe)
+
+    if (selectedCoffe && addToCarContext) {
+      addToCarContext.setCoffeeCart([
+        ...addToCarContext.coffeeCart,
+        selectedCoffe,
+      ])
+    }
+
+    return coffeeCart
   }
-
-  const { globalCount, setGlobalCount } = countContext
 
   function countup() {
     setCount(count + 1)
@@ -64,12 +100,6 @@ export const BodyHome = ({
       setCount(count - 1)
       setGlobalCount(globalCount - 1)
     }
-  }
-
-  function addToCar() {
-    const valueCoffe = 9.99
-
-    return console.log(count * valueCoffe)
   }
 
   return (
@@ -106,7 +136,11 @@ export const BodyHome = ({
         </Counter>
 
         <CarButton>
-          <ShoppingCart weight="fill" size={22} onClick={addToCar} />
+          <ShoppingCart
+            weight="fill"
+            size={22}
+            onClick={() => addToCart(coffes[0].coffeId)}
+          />
         </CarButton>
       </BuyContainer>
     </BodyContainer>
