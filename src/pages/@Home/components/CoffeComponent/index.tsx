@@ -19,21 +19,36 @@ import CoffeThirteen from '../../../../assets/coffe13.svg'
 import CoffeFourteen from '../../../../assets/coffe14.svg'
 
 import { CoffeContainer } from './styled'
+import { useState } from 'react'
 
 export const CoffeComponent = () => {
+  const inicialCounts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  const [counts, setCounts] = useState(inicialCounts)
+
+  const updateCounts = (index, newValue): any => {
+    const newCounts = [...counts]
+    newCounts[index] = newValue
+    setCounts(newCounts)
+  }
+
   return (
     <>
       <h2>Nossos cafés</h2>
 
       <CoffeContainer>
+        {counts.map((count, index) =>(
         <BodyHome
+          key={index}
           img={CoffeOne}
           typeOne="Tradicional"
           name="Expresso Tradicional"
           flavor="O tradicional café feito com água quente e grãos moídos"
           description="Expresso Tradicional"
           coffeId={1}
+          counts={count}
+          updateCounts={(newValue) => updateCounts(index, newValue)}
         />
+        )}
         <BodyHome
           img={CoffeTwo}
           typeOne="Tradicional"

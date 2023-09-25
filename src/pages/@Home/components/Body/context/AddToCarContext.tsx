@@ -24,8 +24,6 @@ export const AddToCarProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [coffeeCart, setCoffeeCart] = useState<CoffeeCardProps[]>([])
 
-  console.log(coffeeCart)
-
   return (
     <AddToCarContext.Provider value={{ coffeeCart, setCoffeeCart }}>
       {children}

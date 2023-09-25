@@ -22,6 +22,8 @@ interface BodyHomeProps {
   typeTwo?: string
   typeTree?: string
   coffeId: number
+  counts: number
+  updateCounts: (index: number, newValue: number) => void
 }
 
 interface CoffeeCardProps {
@@ -44,6 +46,8 @@ export const BodyHome = ({
   typeTwo,
   typeTree,
   coffeId,
+  counts,
+  updateCounts,
 }: BodyHomeProps) => {
   let { CoffeeCard } = useContext(CoffeeCardContext)
   const countContext = useContext(CountContext)
