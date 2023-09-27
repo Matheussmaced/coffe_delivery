@@ -6,13 +6,13 @@ import { CoffeCardProvider } from './components/context/CoffeeCardContext.tsx'
 import { AddToCarProvider } from './pages/@Home/components/Body/context/AddToCarContext.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <CoffeCardProvider>
-      <CountProvider>
-        <AddToCarProvider>
-          <App />
-        </AddToCarProvider>
-      </CountProvider>
-    </CoffeCardProvider>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <CoffeCardProvider>
+    <CountProvider>
+      <AddToCarProvider>
+        <App />
+      </AddToCarProvider>
+    </CountProvider>
+  </CoffeCardProvider>,
+  // </React.StrictMode>,
 )

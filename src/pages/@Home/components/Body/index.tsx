@@ -13,19 +13,6 @@ import { CoffeeCardContext } from '../../../../components/context/CoffeeCardCont
 import { AddToCarContext } from './context/AddToCarContext'
 // import BodyHomeContext from './CountContext'
 
-interface BodyHomeProps {
-  img: string
-  name: string
-  flavor: string
-  description: string
-  typeOne: string
-  typeTwo?: string
-  typeTree?: string
-  coffeId: number
-  counts: number
-  updateCounts: (index: number, newValue: number) => void
-}
-
 interface CoffeeCardProps {
   img: string
   name: string
@@ -37,6 +24,20 @@ interface CoffeeCardProps {
   coffeId: number
 }
 
+interface BodyHomeProps {
+  img: string
+  name: string
+  flavor: string
+  description: string
+  typeOne: string
+  typeTwo?: string
+  typeTree?: string
+  coffeId: number
+}
+
+/* No componente BodyHome, adicione a prop counts como um parâmetro da função de
+componente e use-a para exibir o valor atual do count na sua renderização: */
+
 export const BodyHome = ({
   img,
   name,
@@ -46,14 +47,16 @@ export const BodyHome = ({
   typeTwo,
   typeTree,
   coffeId,
-  counts,
-  updateCounts,
 }: BodyHomeProps) => {
   let { CoffeeCard } = useContext(CoffeeCardContext)
   const countContext = useContext(CountContext)
   const addToCarContext = useContext(AddToCarContext)
 
-  const [count, setCount] = useState(0)
+  const inicialCounts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  // só por enquanto
+  const newInicialCounts = 0
+  const [counts, setCounts] = useState(newInicialCounts)
+
   const [coffes, setCoffes] = useState<CoffeeCardProps[]>([
     { img, name, flavor, description, typeOne, typeTwo, typeTree, coffeId },
   ])
@@ -79,6 +82,20 @@ export const BodyHome = ({
     coffeId,
   }
 
+  /* 
+  const updateCounts = (index, newValue) => {
+    const newCounts = [...counts]
+    newCounts[index] = newValue
+    setCounts(newCounts)
+
+    if (globalCount) {
+      const newGlobalCount = [...globalCount]
+      newGlobalCount[index] = newValue
+      setGlobalCount(newGlobalCount)
+    }
+  }
+*/
+
   CoffeeCard = NewCoffeCard
 
   function addToCart(idCoffe: number) {
@@ -93,16 +110,39 @@ export const BodyHome = ({
 
     return coffeeCart
   }
+  /* 
+  function handleCountup() {
+    const newCount = counts + 1
+    updateCounts(coffeId, newCount)
 
-  function countup() {
-    setCount(count + 1)
-    setGlobalCount(globalCount + 1)
+    if (globalCount) {
+      const newGlobalCount = [...globalCount]
+      newGlobalCount[coffeId - 1] = newCount
+      setGlobalCount(newGlobalCount)
+    }
   }
 
-  function countdown() {
-    if (count > 0) {
-      setCount(count - 1)
-      setGlobalCount(globalCount - 1)
+  function handleCountdown() {
+    if (counts > 0) {
+      const newCount = counts - 1
+
+      updateCounts(coffeId, newCount)
+
+      if (globalCount) {
+        const newGlobalCount = [...globalCount]
+        newGlobalCount[coffeId - 1] = newCount
+        setGlobalCount(newGlobalCount)
+      }
+    }
+  }
+  */
+  // só por enquanto
+  function handleCountup() {
+    setCounts(counts + 1)
+  }
+  function handleCountdown() {
+    if (counts > 0) {
+      setCounts(counts - 1)
     }
   }
 
@@ -130,11 +170,11 @@ export const BodyHome = ({
           R$ <strong id="price">9,90</strong>
         </span>
         <Counter>
-          <button onClick={countdown}>
+          <button onClick={handleCountdown}>
             <Minus weight="bold" color={defaultTheme.purple} />
           </button>
-          <span>{count}</span>
-          <button onClick={countup}>
+          <span>{counts}</span>
+          <button onClick={handleCountup}>
             <Plus weight="bold" color={defaultTheme.purple} />
           </button>
         </Counter>

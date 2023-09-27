@@ -14,7 +14,9 @@ interface childrenProps {
 }
 
 export const CountProvider = ({ children }: childrenProps) => {
-  const [globalCount, setGlobalCount] = useState(0)
+  const counts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  // iniciar com 0
+  const [globalCount, setGlobalCount] = useState(counts)
 
   return (
     <CountContext.Provider value={{ globalCount, setGlobalCount }}>

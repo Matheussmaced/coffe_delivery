@@ -19,159 +19,152 @@ import CoffeThirteen from '../../../../assets/coffe13.svg'
 import CoffeFourteen from '../../../../assets/coffe14.svg'
 
 import { CoffeContainer } from './styled'
-import { useState } from 'react'
 
 export const CoffeComponent = () => {
-  const inicialCounts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-  const [counts, setCounts] = useState(inicialCounts)
+  const coffeeData = [
+    {
+      img: CoffeOne,
+      typeOne: 'Tradicional',
+      name: 'Expresso Tradicional',
+      flavor: 'O tradicional café feito com água quente e grãos moídos',
+      description: 'Expresso Tradicional',
+      coffeId: 1,
+    },
+    {
+      img: CoffeTwo,
+      typeOne: 'Tradicional',
+      name: 'Expresso Americano',
+      flavor: 'Expresso diluído, menos intenso que o tradicional',
+      description: 'Expresso Americano',
+      coffeId: 2,
+    },
+    {
+      img: CoffeTree,
+      typeOne: 'Tradicional',
+      name: 'Expresso Cremoso',
+      flavor: 'Café expresso tradicional com espuma cremosa',
+      description: 'Expresso Cremoso',
+      coffeId: 3,
+    },
+    {
+      img: CoffeFor,
+      typeOne: 'Tradicional',
+      typeTwo: 'gelado',
+      name: 'Expresso Gelado',
+      flavor: 'Bebida preparada com café expresso e cubos de gelo',
+      description: 'Expresso Gelado',
+      coffeId: 4,
+    },
 
-  const updateCounts = (index, newValue): any => {
-    const newCounts = [...counts]
-    newCounts[index] = newValue
-    setCounts(newCounts)
-  }
+    {
+      img: CoffeFive,
+      typeOne: 'Tradicional',
+      typeTwo: 'com leite',
+      name: 'Café com Leite',
+      flavor: 'Meio a meio de expresso tradicional com leite vaporizado',
+      description: 'Café com Leite',
+      coffeId: 5,
+    },
+    {
+      img: CoffeSix,
+      typeOne: 'Tradicional',
+      typeTwo: 'com leite',
+      name: 'Latte',
+      flavor: 'Uma dose de café expresso com o dobro de leite e espuma cremosa',
+      description: 'Latte',
+      coffeId: 6,
+    },
+    {
+      img: CoffeSeven,
+      typeOne: 'Tradicional',
+      typeTwo: 'com leite',
+      name: 'Capuccino',
+      flavor: 'Bebida com canela feita de doses iguais de café, leite e espuma',
+      description: 'Capuccino',
+      coffeId: 7,
+    },
+    {
+      img: CoffeEight,
+      typeOne: 'Tradicional',
+      typeTwo: 'com leite',
+      name: 'Macchiato',
+      flavor: 'Café expresso misturado com um pouco de leite quente e espuma',
+      description: 'Macchiato',
+      coffeId: 8,
+    },
+
+    {
+      img: CoffeNine,
+      typeOne: 'Tradicional',
+      typeTwo: 'com leite',
+      name: 'Mocaccino',
+      flavor: 'Café expresso com calda de chocolate, pouco leite e espuma',
+      description: 'Mocaccino',
+      coffeId: 9,
+    },
+    {
+      img: CoffeTen,
+      typeOne: 'Tradicional',
+      typeTwo: 'com leite',
+      name: 'Chocolate Quente',
+      flavor: 'Bebida feita com chocolate dissolvido no leite quente e café',
+      description: 'Chocolate Quente',
+      coffeId: 10,
+    },
+    {
+      img: CoffeEleven,
+      typeOne: 'Especial',
+      typeTwo: 'alcoólico',
+      typeTree: 'gelado',
+      name: 'Cubano',
+      flavor: 'Drink gelado de café expresso com rum, creme de leite e hortelã',
+      description: 'Cubano',
+      coffeId: 11,
+    },
+    {
+      img: CoffeTwelve,
+      typeOne: 'Tradicional',
+      name: 'Havaiano',
+      flavor: 'Bebida adocicada preparada com café e leite de coco',
+      description: 'Havaiano',
+      coffeId: 12,
+    },
+
+    {
+      img: CoffeThirteen,
+      typeOne: 'especial',
+      name: 'Árabe',
+      flavor: 'Bebida preparada com grãos de café árabe e especiarias',
+      description: 'Árabe',
+      coffeId: 13,
+    },
+    {
+      img: CoffeFourteen,
+      typeOne: 'Tradicional',
+      typeTwo: 'alcoólico',
+      name: 'Irlandês',
+      flavor: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
+      description: 'alcoólico',
+      coffeId: 14,
+    },
+  ]
 
   return (
     <>
       <h2>Nossos cafés</h2>
 
       <CoffeContainer>
-        {counts.map((count, index) =>(
-        <BodyHome
-          key={index}
-          img={CoffeOne}
-          typeOne="Tradicional"
-          name="Expresso Tradicional"
-          flavor="O tradicional café feito com água quente e grãos moídos"
-          description="Expresso Tradicional"
-          coffeId={1}
-          counts={count}
-          updateCounts={(newValue) => updateCounts(index, newValue)}
-        />
-        )}
-        <BodyHome
-          img={CoffeTwo}
-          typeOne="Tradicional"
-          name="Expresso Americano"
-          flavor="Expresso diluído, menos intenso que o tradicional"
-          description="Expresso Americano"
-          coffeId={2}
-        />
-        <BodyHome
-          img={CoffeTree}
-          typeOne="Tradicional"
-          name="Expresso Cremoso"
-          flavor="Café expresso tradicional com espuma cremosa"
-          description="Expresso Cremoso"
-          coffeId={3}
-        />
-        <BodyHome
-          img={CoffeFor}
-          typeOne="Tradicional"
-          typeTwo="gelado"
-          name="Expresso Gelado"
-          flavor="Bebida preparada com café expresso e cubos de gelo"
-          description="Expresso Gelado"
-          coffeId={4}
-        />
-      </CoffeContainer>
-
-      <CoffeContainer>
-        <BodyHome
-          img={CoffeFive}
-          typeOne="Tradicional"
-          typeTwo="com leite"
-          name="Café com Leite"
-          flavor="Meio a meio de expresso tradicional com leite vaporizado"
-          description="Café com Leite"
-          coffeId={5}
-        />
-        <BodyHome
-          img={CoffeSix}
-          typeOne="Tradicional"
-          typeTwo="com leite"
-          name="Latte"
-          flavor="Uma dose de café expresso com o dobro de leite e espuma cremosa"
-          description="Latte"
-          coffeId={6}
-        />
-        <BodyHome
-          img={CoffeSeven}
-          typeOne="Tradicional"
-          typeTwo="com leite"
-          name="Capuccino"
-          flavor="Bebida com canela feita de doses iguais de café, leite e espuma"
-          description="Capuccino"
-          coffeId={7}
-        />
-        <BodyHome
-          img={CoffeEight}
-          typeOne="Tradicional"
-          typeTwo="com leite"
-          name="Macchiato"
-          flavor="Café expresso misturado com um pouco de leite quente e espuma"
-          description="Macchiato"
-          coffeId={8}
-        />
-      </CoffeContainer>
-
-      <CoffeContainer>
-        <BodyHome
-          img={CoffeNine}
-          typeOne="Tradicional"
-          typeTwo="com leite"
-          name="Mocaccino"
-          flavor="Café expresso com calda de chocolate, pouco leite e espuma"
-          description="Mocaccino"
-          coffeId={9}
-        />
-        <BodyHome
-          img={CoffeTen}
-          typeOne="Tradicional"
-          typeTwo="com leite"
-          name="Chocolate Quente"
-          flavor="Bebida feita com chocolate dissolvido no leite quente e café"
-          description="Chocolate Quente"
-          coffeId={10}
-        />
-        <BodyHome
-          img={CoffeEleven}
-          typeOne="especial"
-          typeTwo="alcoólico"
-          typeTree="gelado"
-          name="Cubano"
-          flavor="Drink gelado de café expresso com rum, creme de leite e hortelã"
-          description="Cubano"
-          coffeId={11}
-        />
-        <BodyHome
-          img={CoffeTwelve}
-          typeOne="Tradicional"
-          name="Havaiano"
-          flavor="Bebida adocicada preparada com café e leite de coco"
-          description="Havaiano"
-          coffeId={12}
-        />
-      </CoffeContainer>
-
-      <CoffeContainer>
-        <BodyHome
-          img={CoffeThirteen}
-          typeOne="especial"
-          name="Árabe"
-          flavor="Bebida preparada com grãos de café árabe e especiarias"
-          description="Árabe"
-          coffeId={13}
-        />
-        <BodyHome
-          img={CoffeFourteen}
-          typeOne="especial"
-          typeTwo="alcoólico"
-          name="Irlandês"
-          flavor="Bebida a base de café, uísque irlandês, açúcar e chantilly"
-          description="alcoólico"
-          coffeId={14}
-        />
+        {coffeeData.map((coffe, index) => (
+          <BodyHome
+            key={coffe.coffeId}
+            img={coffe.img}
+            typeOne={coffe.typeOne}
+            name={coffe.name}
+            flavor={coffe.flavor}
+            description={coffe.description}
+            coffeId={coffe.coffeId}
+          />
+        ))}
       </CoffeContainer>
     </>
   )
