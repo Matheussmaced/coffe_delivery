@@ -33,10 +33,9 @@ interface BodyHomeProps {
   typeTwo?: string
   typeTree?: string
   coffeId: number
+  count: number
+  updateCount: (newValue: number) => void
 }
-
-/* No componente BodyHome, adicione a prop counts como um parâmetro da função de
-componente e use-a para exibir o valor atual do count na sua renderização: */
 
 export const BodyHome = ({
   img,
@@ -47,15 +46,12 @@ export const BodyHome = ({
   typeTwo,
   typeTree,
   coffeId,
+  count,
+  updateCount,
 }: BodyHomeProps) => {
   let { CoffeeCard } = useContext(CoffeeCardContext)
   const countContext = useContext(CountContext)
   const addToCarContext = useContext(AddToCarContext)
-
-  const inicialCounts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-  // só por enquanto
-  const newInicialCounts = 0
-  const [counts, setCounts] = useState(newInicialCounts)
 
   const [coffes, setCoffes] = useState<CoffeeCardProps[]>([
     { img, name, flavor, description, typeOne, typeTwo, typeTree, coffeId },
@@ -82,20 +78,6 @@ export const BodyHome = ({
     coffeId,
   }
 
-  /* 
-  const updateCounts = (index, newValue) => {
-    const newCounts = [...counts]
-    newCounts[index] = newValue
-    setCounts(newCounts)
-
-    if (globalCount) {
-      const newGlobalCount = [...globalCount]
-      newGlobalCount[index] = newValue
-      setGlobalCount(newGlobalCount)
-    }
-  }
-*/
-
   CoffeeCard = NewCoffeCard
 
   function addToCart(idCoffe: number) {
@@ -110,47 +92,24 @@ export const BodyHome = ({
 
     return coffeeCart
   }
-  /* 
+
   function handleCountup() {
-    const newCount = counts + 1
-    updateCounts(coffeId, newCount)
-
-    if (globalCount) {
-      const newGlobalCount = [...globalCount]
-      newGlobalCount[coffeId - 1] = newCount
-      setGlobalCount(newGlobalCount)
-    }
-  }
-
-  function handleCountdown() {
-    if (counts > 0) {
-      const newCount = counts - 1
-
-      updateCounts(coffeId, newCount)
-
-      if (globalCount) {
-        const newGlobalCount = [...globalCount]
-        newGlobalCount[coffeId - 1] = newCount
-        setGlobalCount(newGlobalCount)
-      }
-    }
-  }
-  */
-  // só por enquanto
-  function handleCountup() {
-    setCounts(counts + 1)
+    updateCount(count + 1)
   }
   function handleCountdown() {
-    if (counts > 0) {
-      setCounts(counts - 1)
+    if (count > 0) {
+      updateCount(count - 1)
     }
   }
+
+  setGlobalCount(count)
+  console.log(globalCount)
 
   return (
     <BodyContainer>
-      {coffes.map((coffe) => {
+      {coffes.map((coffe, index) => {
         return (
-          <div key={coffeId}>
+          <div key={index}>
             <img src={coffe.img} alt={coffe.description} />
 
             <TypesContainer>
@@ -173,7 +132,7 @@ export const BodyHome = ({
           <button onClick={handleCountdown}>
             <Minus weight="bold" color={defaultTheme.purple} />
           </button>
-          <span>{counts}</span>
+          <span>{count}</span>
           <button onClick={handleCountup}>
             <Plus weight="bold" color={defaultTheme.purple} />
           </button>

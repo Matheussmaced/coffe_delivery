@@ -19,8 +19,35 @@ import CoffeThirteen from '../../../../assets/coffe13.svg'
 import CoffeFourteen from '../../../../assets/coffe14.svg'
 
 import { CoffeContainer } from './styled'
+import { useContext, useState } from 'react'
+import { CountContext } from '../../../../components/context/CountContext'
 
 export const CoffeComponent = () => {
+  const inicialCounts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+  const globalCountContext = useContext(CountContext)
+
+  // preciso trocar meu globalCount para esse useState e passar para cá
+  const [globalCounts, setGlobalCounts] = useState(inicialCounts)
+
+  if (!globalCountContext) {
+    return null
+  }
+
+  const { globalCount } = globalCountContext
+
+  const [counts, setCounts] = useState(inicialCounts)
+
+  const updateCount = (index, newValue) => {
+    const newCounts = [...counts]
+    newCounts[index] = newValue
+    setCounts(newCounts)
+
+    const newGlobalCounts = [...globalCounts]
+    newGlobalCounts[index] = newValue
+    setGlobalCounts(newGlobalCounts)
+  }
+
   const coffeeData = [
     {
       img: CoffeOne,
@@ -163,6 +190,8 @@ export const CoffeComponent = () => {
             flavor={coffe.flavor}
             description={coffe.description}
             coffeId={coffe.coffeId}
+            count={counts[index]}
+            updateCount={(newValue) => updateCount(index, newValue)}
           />
         ))}
       </CoffeContainer>
