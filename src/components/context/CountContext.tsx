@@ -1,8 +1,8 @@
 import { createContext, useState } from 'react'
 
 export interface CountContextType {
-  globalCount: number
-  setGlobalCount: (count: number) => void
+  globalCount: number[]
+  setGlobalCount: (count: number[]) => void
 }
 
 export const CountContext = createContext<CountContextType | undefined>(
@@ -14,9 +14,9 @@ interface childrenProps {
 }
 
 export const CountProvider = ({ children }: childrenProps) => {
-  const counts = 0
-  // iniciar com 0
-  const [globalCount, setGlobalCount] = useState(counts)
+  const inicialCounts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+  const [globalCount, setGlobalCount] = useState<number[]>(inicialCounts)
 
   return (
     <CountContext.Provider value={{ globalCount, setGlobalCount }}>

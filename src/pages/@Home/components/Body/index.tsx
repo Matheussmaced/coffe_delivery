@@ -50,22 +50,16 @@ export const BodyHome = ({
   updateCount,
 }: BodyHomeProps) => {
   let { CoffeeCard } = useContext(CoffeeCardContext)
-  const countContext = useContext(CountContext)
   const addToCarContext = useContext(AddToCarContext)
 
-  const [coffes, setCoffes] = useState<CoffeeCardProps[]>([
+  const [coffes] = useState<CoffeeCardProps[]>([
     { img, name, flavor, description, typeOne, typeTwo, typeTree, coffeId },
   ])
-
-  if (!countContext) {
-    return null
-  }
 
   if (!addToCarContext) {
     return null
   }
   const { coffeeCart, setCoffeeCart } = AddToCarContext
-  const { globalCount, setGlobalCount } = countContext
 
   const NewCoffeCard: CoffeeCardProps = {
     img,
@@ -101,9 +95,6 @@ export const BodyHome = ({
       updateCount(count - 1)
     }
   }
-
-  setGlobalCount(count)
-  console.log(globalCount)
 
   return (
     <BodyContainer>

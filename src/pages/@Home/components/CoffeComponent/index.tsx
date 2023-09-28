@@ -26,27 +26,30 @@ export const CoffeComponent = () => {
   const inicialCounts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
   const globalCountContext = useContext(CountContext)
+  const [counts, setCounts] = useState(inicialCounts)
 
   // preciso trocar meu globalCount para esse useState e passar para cá
-  const [globalCounts, setGlobalCounts] = useState(inicialCounts)
+  // const [globalCounts, setGlobalCounts] = useState(inicialCounts)
 
   if (!globalCountContext) {
     return null
   }
 
-  const { globalCount } = globalCountContext
+  const { globalCount, setGlobalCount } = globalCountContext
 
-  const [counts, setCounts] = useState(inicialCounts)
+  console.log('antes', globalCount)
 
-  const updateCount = (index, newValue) => {
+  const updateCount = (index: number, newValue: number) => {
     const newCounts = [...counts]
     newCounts[index] = newValue
     setCounts(newCounts)
 
-    const newGlobalCounts = [...globalCounts]
-    newGlobalCounts[index] = newValue
-    setGlobalCounts(newGlobalCounts)
+    const newGlobalCount = [...globalCount]
+    newGlobalCount[index] = newValue
+    setGlobalCount(newGlobalCount)
   }
+
+  console.log('depois', globalCount)
 
   const coffeeData = [
     {
