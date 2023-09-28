@@ -8,10 +8,8 @@ import {
 } from './styled'
 import { defaultTheme } from '../../../../components/styles/themes/default'
 import { useState, useContext } from 'react'
-import { CountContext } from '../../../../components/context/CountContext'
 import { CoffeeCardContext } from '../../../../components/context/CoffeeCardContext'
 import { AddToCarContext } from './context/AddToCarContext'
-// import BodyHomeContext from './CountContext'
 
 interface CoffeeCardProps {
   img: string

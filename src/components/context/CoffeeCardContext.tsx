@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react'
+import { createContext } from 'react'
 
 interface CoffeeCardContextProps {
   img: string
@@ -28,8 +28,6 @@ export const CoffeCardProvider: React.FC<{ children: React.ReactNode }> = ({
     typeTree: '',
     coffeId: 1,
   }
-
-  const [newCoffeeCard, setNewCoffeeCard] = useState({ CoffeeCard })
 
   return (
     <CoffeeCardContext.Provider value={CoffeeCard}>

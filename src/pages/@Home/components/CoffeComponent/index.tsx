@@ -37,8 +37,6 @@ export const CoffeComponent = () => {
 
   const { globalCount, setGlobalCount } = globalCountContext
 
-  console.log('antes', globalCount)
-
   const updateCount = (index: number, newValue: number) => {
     const newCounts = [...counts]
     newCounts[index] = newValue
@@ -48,8 +46,6 @@ export const CoffeComponent = () => {
     newGlobalCount[index] = newValue
     setGlobalCount(newGlobalCount)
   }
-
-  console.log('depois', globalCount)
 
   const coffeeData = [
     {

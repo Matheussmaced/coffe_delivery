@@ -21,6 +21,12 @@ export const Header = () => {
 
   const { globalCount } = globalCountContext
 
+  const totalCount = globalCount.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+  )
+
+  console.log(totalCount)
+
   return (
     <>
       <header>
@@ -42,7 +48,7 @@ export const Header = () => {
                     color={defaultTheme['yellow-dark']}
                     weight="fill"
                   />
-                  {globalCount > 0 ? <Count> {globalCount} </Count> : null}
+                  {totalCount > 0 ? <Count> {totalCount} </Count> : null}
                 </NavLink>
               </SpanButtonCart>
             </ButtonsContainer>
